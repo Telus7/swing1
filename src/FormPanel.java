@@ -17,6 +17,7 @@ public class FormPanel extends JPanel {
 	private JButton okBtn;
 	private JTextField nameField;
 	private JTextField occupationField;
+	private FormListener formListener;
 	
 	
 	
@@ -37,9 +38,19 @@ public class FormPanel extends JPanel {
 		
 		okBtn.addActionListener(new ActionListener() {
 			
-			@Override
+			
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
+				
+				String name = nameField.getText();
+				String occupation = occupationField.getText();
+				
+				FormEvent ev = new FormEvent(this, name, occupation);
+				
+				if(formListener != null){
+					
+					formListener.FormEventOccured(ev);
+
+				}
 				
 			}
 		});
@@ -95,16 +106,10 @@ public class FormPanel extends JPanel {
 		gc.gridy = 2;
 		gc.anchor = GridBagConstraints.FIRST_LINE_START;
 		add(okBtn, gc);
-		
-		
-			
-		
-		
-		
-		
-		
-		
-		
+		}
+
+	public void setFormListener(FormListener formListener) {
+		this.formListener = formListener;
 	}
 
 }
