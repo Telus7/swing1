@@ -1,6 +1,8 @@
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -32,6 +34,16 @@ public class FormPanel extends JPanel {
 		occupationField = new JTextField(10);
 		
 		okBtn = new JButton("OK");
+		
+		okBtn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
 		
 		
 		setBorder(BorderFactory.createTitledBorder("Add Name"));
